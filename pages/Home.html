@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <script>
+        let tempoTotal = 0;
+        let cronometro;
+
+        function iniciarCronometro() {
+            cronometro = setInterval(function () {
+                tempoTotal++;
+                atualizarCronometro();
+            }, 1000);
+        }
+
+        function pararCronometro() {
+            clearInterval(cronometro);
+        }
+
+        function zerarCronometro() {
+            tempoTotal = 0;
+            atualizarCronometro();
+        }
+
+        function atualizarCronometro() {
+            const minutos = Math.floor((tempoTotal % 3600) / 60);
+            const segundos = tempoTotal % 60;
+
+            const formatoMinutos = minutos.toString().padStart(2, '0');
+            const formatoSegundos = segundos.toString().padStart(2, '0');
+
+            document.getElementById('cronometro').textContent = `${formatoMinutos}:${formatoSegundos}`;
+        }
+
+        window.onload = function () {
+            iniciarCronometro();
+        }
+
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../style/Home.css">
+
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="teste">
+            <div class="menu">
+                <h1>URA</h1>
+            </div>
+            <div class="logo">
+                <a href="Home.html" target="_self" class="voltar">
+                    <img src="../icons/logo-copel-branco.png" alt="">
+                </a>
+            </div>
+            <div class="register">
+                <a href="Home.html" target="_self" class="voltar">
+                    <img src="../icons/registrar.svg" alt="">
+                </a>
+            </div>
+            <div class="container-header">
+                <a href="Home.html" target="_self" class="voltar">x</a>
+
+                <div id="cronometro" class="cronometro">00:00</div>
+            </div>
+        </div>
+
+    </header>
+
+    <p class="ura">OPÇÕES DE ATENDIMENTOS: </p>
+    <div class="container-wrapper">
+        <div class="container">
+            <a href="Faturamento.html" style="color: #e25c10; text-decoration: none;">
+                <h2> 1 - FATURAMENTO</h2>
+            </a>
+        </div>
+        <div class="containerDiferente">
+            <a href="FaltaEnergia.html" style="color: #e25c10; text-decoration: none;">
+                <h2> 2 - FALTA DE ENERGIA OU</h2>
+            </a>
+            <a href="FaltaEnergia.html" style="color: #e25c10; text-decoration: none;">
+                <h2> PROBLEMA NA REDE ELÉTRICA</h2>
+            </a>
+        </div>
+        <div class="container">
+            <a href="OrdemServico.html" style="color: #e25c10; text-decoration: none;">
+                <h2> 3 - ORDEM DE SERVIÇO</h2>
+            </a>
+        </div>
+        <div class="modal">
+            <a href="Home.html" target="_self">
+                <img src="../icons/interrogation.svg" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="ordem">
+        <div class="container">
+            <h2> 4 - CONSULTA DÉBITO</h2>
+        </div>
+        <div class="container">
+            <h2> 5 - RELIGAR ENERGIA</h2>
+        </div>
+        <div class="container">
+            <h2> 6 - DESLIGAR ENERGIA</h2>
+        </div>
+        <div class="modal">
+            <a href="Home.html" target="_self">
+                <img src="../icons/interrogation.svg" alt="">
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
